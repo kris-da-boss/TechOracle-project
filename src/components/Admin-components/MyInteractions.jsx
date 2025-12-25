@@ -1,20 +1,14 @@
 import Header from "../header-footer-components/header"
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import { LucideMessagesSquare, MenuIcon, MessageSquareTextIcon, Eye , Lock, Play, Trash2Icon, Archive} from "lucide-react"
 import './MyInteractions.css'
+import outsideClickFunction from "./outsideClickFunction"
 export default function MyInteraction(){
     const [option, setOption]=useState(false);
     const optionsRef=useRef(null);
-    const optionIcon=useRef(null)
-   
-        document.addEventListener('click', function(e){
-        if(optionsRef.current &&
-        !optionsRef.current.contains(e.target)&&
-        !optionIcon.current.contains(e.target)){
-           
-            setOption(false)
-        }
-    })
+    const optionIcon=useRef(null);
+
+     outsideClickFunction([optionsRef, optionIcon],  ()=>setOption(false));
     
    
     return(
@@ -45,7 +39,7 @@ export default function MyInteraction(){
          <br />
     <p>Polls</p><br />
     <div className="polls-display">
-        {/* <p>Your polls will appear here</p> */}
+    {/* <p>Your polls will appear here</p> */}
         <div>
             <div className="name">
             <p>Name</p>
