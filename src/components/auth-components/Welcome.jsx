@@ -12,11 +12,11 @@ const menuClass=showMenu ?'showMenu':'closeMenu';
         <header className="welcome-header">
         <h2 className='logo'>ChoiceHub</h2>
         <div>
-            <Link to="login">
+            <Link to="/login">
              <button className='login-btn'>Log in</button>
             </Link>
             
-            <Link to="signup">
+            <Link to="/signup">
             <button className='signup-btn'>Sign Up</button></Link>
 
               <button onClick={()=> setShowMenu(true)} className='menu-icon'><MenuIcon/></button>
@@ -38,18 +38,18 @@ const menuClass=showMenu ?'showMenu':'closeMenu';
             </button>
         </div>
           <section className='tag-1-div' >
-        <p className='tag-1'>vote without Rigging</p>
+        <p className='tag-1'>vote without Rigging</p><br /><br />
         <p>The easiest way to make your meetings interactive
         Engage Your participant with live polls, Q&A, quizzes and word clouds - whether you meet in the office, online or in between.
-        </p>
+        </p><br />
         <button>Get started for free</button>
          </section>
        
        <section className='offer'>
-        <h2>It's how you <span>include everyone</span> in your meetings</h2>
+        <h2>It's how you <span>include everyone</span> in your meetings</h2><br /><br />
         <p>
              ChoiceHub gives you everything you need to engange  your participant, capture their views and make everyone feel connected - whether you're running a team call, traning or an all-company meeting.
-        </p>
+        </p><br />
 
          <div className='offer-div' data-aos='fade-up'>
             <div >
@@ -138,7 +138,7 @@ const menuClass=showMenu ?'showMenu':'closeMenu';
        </div>
        <div className='extraTag' data-aos='slide-up'>
         <p>Make your meetings more interactive with ChoiceHub.</p>
-         <Link to='signup'> <button >Start Voting</button></Link>
+         <Link to='/signup'> <button >Start Voting</button></Link>
        </div>
        
    </main>
