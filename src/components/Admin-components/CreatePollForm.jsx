@@ -29,7 +29,7 @@ export default function CreatepollForm(){
 
             <p className='note'>
                 <MessageCircleWarning/>Anyone with the code or link can participate</p><br />
-            <div className='cancel-create-btn'>
+            <div className='cancel-create-btn'>  
                 <button>cancel</button>
                 <button onClick={()=> navigate('/my-interaction')}>create poll</button>
             </div>
