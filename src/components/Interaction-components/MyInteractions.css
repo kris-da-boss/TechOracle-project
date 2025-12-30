@@ -208,6 +208,9 @@ gap: 20px;
     padding: 10px;
     margin-bottom: 15px;
 }
+.add-interaction .deleteOption{
+    display: none;
+}
 .add-interaction .input-note input:focus{
 outline: white solid 2px;
 border-radius: 7px;
@@ -224,7 +227,8 @@ color:rgb(48, 21, 5);
 .add-interaction span{
     text-align: end;
 }
-.add-interaction .option:hover{
+.add-interaction .option:hover
+ {
 border: rgb(47, 104, 47) 2px solid;
 border-radius: 10px;
 }

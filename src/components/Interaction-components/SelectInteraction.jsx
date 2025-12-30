@@ -5,7 +5,6 @@ export default function SelectInteraction({name}){
     const [addInteraction, setAddInteraction]=useState(false);
     return(
        <div className="selectInteraction">  
-       
        <div className="name-delete">
         <p>{name}</p>
           <Trash2Icon/>
@@ -15,10 +14,9 @@ export default function SelectInteraction({name}){
          { <div className="no-poll">
             <p>{name} is Empty</p><br />
             <button onClick={()=>setAddInteraction(true)}>+ Add first question</button>
-            </div>
-         }
+            </div> }
          {/* Add Interaction */}
-         {addInteraction&&<AddInteraction
+         {addInteraction && <AddInteraction
          setAddInteraction={setAddInteraction}
          name={name}
          /> }
@@ -26,7 +24,7 @@ export default function SelectInteraction({name}){
          <div className="launch">
             <div>
              <span>+</span>
-            <button>Launch</button>
+            <button disabled={true}>Launch</button>
             </div> 
         </div>
        </div>

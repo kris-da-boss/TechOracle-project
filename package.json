@@ -11,7 +11,6 @@
     "post-build":"cpy dist/index.html dist/404.html",
     "predeploy":"npm run build",
     "deploy": "gh-pages -d dist"
-    
   },
   "dependencies": {
     "aos": "^2.3.4",

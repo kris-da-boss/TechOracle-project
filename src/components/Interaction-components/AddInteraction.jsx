@@ -1,35 +1,58 @@
 import { ArrowBigLeftIcon, Dice3Icon, Settings, Trash2Icon } from "lucide-react"
-import { useState } from "react"
+import { useState,  memo, useEffect, useRef } from "react"
 export default function AddInteraction({setAddInteraction, name}){
-    const optionArray=[
+    const inputRef=useRef([])
+    const [question, setQuestion]=useState([]);
+    const [disabled, setDisabled]=useState(true);
+    const [toggleCheckbox, settoggleCheckbox]=useState(false)
+    const [option, setOption]=useState([ 
         {
-            no:1,
-        },
-        {
-            no:2,
+            id:1,
+            value:''
+        },{
+            id:2,
+            value:''
         }
-    ]
-    const [option, setOption]=useState(optionArray);
+    ]);
+   useEffect(()=>{
+      const inputCheck=option.some(opt=> opt.value!=='')
+      const checkbox=inputRef.current.some(inp=>inp.checked)
+
+         if(inputCheck && checkbox){
+            setDisabled(false)
+         }else{
+            setDisabled(true)
+         }
+   },[option,toggleCheckbox ])
+    
+
     function addOptions(){
         setOption(prev=>{
-            const nextOption=prev[prev.length-1].no+1
+            const nextOption=prev[prev.length-1].id+1
             return(
              [...prev,{
-                no:nextOption
+                id:nextOption,
+                value:''
             }])   
         } )
     }
-    function deleteOption(number){
-         setOption(prev=> prev.length>2?prev= prev.filter((option)=>option.no!==number):prev)
+    function deleteOption(id){
+    setOption(prev=> prev.length>2?prev.filter((opt)=>opt.id!==id):prev);
+    }
+    function updateValue(id, newValue){
+            setOption(prev=> prev.map((input)=>input.id===id? {...input,value:newValue}: input));
     }
 
     const displayOptions=option.map((opt, index)=> {
         return(
-            <div className="option" key={crypto.randomUUID()}>
+            <div className="option" key={index}>
             <div>
-              <input type="checkbox"/>
-               <input type="text"  placeholder={`Option ${index+1}`}/>
-               {option.length > 2 && <Trash2Icon onClick={()=>deleteOption(opt.no)}/>}
+              <input type="checkbox" ref={i=>inputRef.current[index]=i} onChange={()=>settoggleCheckbox(!toggleCheckbox)}/>
+               <input type="text"  
+                placeholder={`Option ${index+1}`} 
+                value={opt.value} 
+                onChange={(e)=>updateValue(opt.id, e.target.value)}/>
+               {option.length > 2 && <Trash2Icon onClick={()=>deleteOption(opt.id)} className="deleteOption"/>}
              </div>
              <div className="percent">
                 <div>
@@ -72,7 +95,7 @@ export default function AddInteraction({setAddInteraction, name}){
             <div className="launch">
             <div>
              <span>+</span>
-            <button>Launch</button>
+            <button disabled={disabled}>Launch</button>
             </div> 
         </div>
         </div>
