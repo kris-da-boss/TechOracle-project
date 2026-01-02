@@ -3,7 +3,7 @@ import Header from "../header-footer-components/header"
 import SelectInteraction from "./SelectInteraction";
 import { useState } from "react";
 
-export default function({setAddInteraction}){
+export default function({setAddInteraction, questions, setQuestions}){
     const [showInteraction, setShowInteraction]=useState(false)
     const [interactionName, setInteractionName]=useState('')
     const interactionChoice=[
@@ -65,6 +65,8 @@ export default function({setAddInteraction}){
          {showInteraction && 
          <SelectInteraction
          name={interactionName}
+         questions={questions}
+         setQuestions={setQuestions}
          />} 
         </main>
     )

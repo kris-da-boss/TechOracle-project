@@ -1,29 +1,39 @@
-import { ArrowBigLeftIcon, Dice3Icon, Settings, Trash2Icon } from "lucide-react"
-import { useState,  memo, useEffect, useRef } from "react"
-export default function AddInteraction({setAddInteraction, name}){
-    const inputRef=useRef([])
-    const [question, setQuestion]=useState([]);
+import { ArrowBigLeftIcon, Dice3Icon, Play, ReceiptRussianRuble, Settings, Trash2Icon } from "lucide-react"
+import { useState,  memo, useEffect} from "react"
+export default function AddInteraction({setAddInteraction, name, question, setQuestion, questions, setQuestions}){
+    
     const [disabled, setDisabled]=useState(true);
-    const [toggleCheckbox, settoggleCheckbox]=useState(false)
+    const [afterLaunch, setAfterlaunch]=useState(false);
     const [option, setOption]=useState([ 
         {
             id:1,
-            value:''
+            value:'',
+            checked:false
         },{
             id:2,
-            value:''
+            value:'',
+            checked:false
         }
     ]);
    useEffect(()=>{
-      const inputCheck=option.some(opt=> opt.value!=='')
-      const checkbox=inputRef.current.some(inp=>inp.checked)
+      const inputCheck=option.some(opt=> opt.value.trim()!=='')
+      const checkbox=option.some(opt=>opt.checked);
 
          if(inputCheck && checkbox){
             setDisabled(false)
          }else{
             setDisabled(true)
          }
-   },[option,toggleCheckbox ])
+      },[option])
+
+      function addQuestions() {
+    setQuestions(prev => {
+    if (prev.some(q => q.question === question))
+      return prev
+    return [...prev, { question }]
+  })
+}
+
     
 
     function addOptions(){
@@ -32,27 +42,36 @@ export default function AddInteraction({setAddInteraction, name}){
             return(
              [...prev,{
                 id:nextOption,
-                value:''
+                value:'',
+                checked:false  
             }])   
         } )
     }
     function deleteOption(id){
-    setOption(prev=> prev.length>2?prev.filter((opt)=>opt.id!==id):prev);
+    setOption(prev=> prev.filter((opt)=>opt.id!==id));
     }
     function updateValue(id, newValue){
             setOption(prev=> prev.map((input)=>input.id===id? {...input,value:newValue}: input));
+    }
+    function toggleChecked(id){
+        setOption(prev=> 
+        prev.map(opt=>opt.id===id ?
+        {...opt, checked:!opt.checked}:opt))
     }
 
     const displayOptions=option.map((opt, index)=> {
         return(
             <div className="option" key={index}>
             <div>
-              <input type="checkbox" ref={i=>inputRef.current[index]=i} onChange={()=>settoggleCheckbox(!toggleCheckbox)}/>
+              <input type="checkbox"
+               checked={opt.checked}
+               onChange={()=>toggleChecked(opt.id)}/>
+
                <input type="text"  
                 placeholder={`Option ${index+1}`} 
                 value={opt.value} 
                 onChange={(e)=>updateValue(opt.id, e.target.value)}/>
-               {option.length > 2 && <Trash2Icon onClick={()=>deleteOption(opt.id)} className="deleteOption"/>}
+               {option.length > 2 && <Trash2Icon onClick={()=>deleteOption(opt.id)} />}
              </div>
              <div className="percent">
                 <div>
@@ -62,13 +81,15 @@ export default function AddInteraction({setAddInteraction, name}){
              </div>
               </div>
         )
-    })
+    })        
     return(
         <div className="add-interaction">
            <button className="back" onClick={()=>setAddInteraction(false)}>
              <ArrowBigLeftIcon/> back to {name}</button>
              <br /><br />
-        <div className="intro">
+        {  afterLaunch ? <p className="launch-note">Participants are joining</p>:
+        <>
+            <div className="intro">
             <div>
              <p>{name} question</p>
             <p><span>0</span> votes <span></span>
@@ -82,22 +103,33 @@ export default function AddInteraction({setAddInteraction, name}){
             </div>
             <br /><br />
             <div className="input-note">
-            <input type="text" placeholder="what would you like to ask?"/>
+            <input 
+             type="text"
+             placeholder="what would you like to ask?" onChange={(e)=>setQuestion(e.target.value)}
+             value={question}
+             />
             <p>Don't forget to mark the correct answer</p>
             </div>
             <br /><br/>
             {/* Add Options */}
              {option.length > 0 && displayOptions}
               <br />
-
-            <button className="more-options" onClick={addOptions}>+ Add option</button>
+            <button className="more-options" onClick={addOptions}>+ Add option</button></>  
+        } 
             <br /><br />
-            <div className="launch">
+            {
+            afterLaunch ? <div className="launch">
             <div>
-             <span>+</span>
-            <button disabled={disabled}>Launch</button>
+             <span><Play/></span>
+            <button disabled={disabled} onClick={()=>setAfterlaunch(false)}>First Question</button>
             </div> 
-        </div>
+            </div>:<div className="launch">
+            <div>
+             <button onClick={addQuestions}>+</button>
+            <button disabled={disabled} onClick={()=>setAfterlaunch(true)}>Launch</button>
+            </div> 
+        </div> }
+            
         </div>
     )
 }

@@ -153,7 +153,6 @@ padding: 10px;
 }
 .selectInteraction .launch{
  display: flex;
- bottom: 0;
  justify-content: center;
  color: black;
  font-weight: bold;
@@ -257,8 +256,12 @@ border-radius: 10px;
 .add-interaction .option .percent{
    margin-top: 10px;
 }
+
 .add-interaction .more-options{
     color: white;
     background-color: rgb(48, 21, 5);
     border: none;
+}
+.add-interaction .launch-note{
+    text-align: center;
 }

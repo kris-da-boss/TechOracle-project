@@ -9,10 +9,12 @@ export default function MyInteraction(){
     const [addInteraction, setAddInteraction]=useState(false)
     const [option, setOption]=useState(false);
     const [option2, setOption2]=useState(false);
+     const [questions, setQuestions]=useState([]);
     const optionsRef=useRef(null);
     const optionIcon=useRef(null);
     const optionRef2=useRef(null);
     const optionIcon2=useRef(null);
+    console.log(questions)
 
      outsideClickFunction([optionsRef, optionIcon], 
      ()=>setOption(false));
@@ -32,6 +34,8 @@ export default function MyInteraction(){
      {addInteraction && <SelectInteractions 
      addInteraction={addInteraction} 
      setAddInteraction={setAddInteraction}
+     questions={questions}
+     setQuestions={setQuestions}
      />}
       
 
