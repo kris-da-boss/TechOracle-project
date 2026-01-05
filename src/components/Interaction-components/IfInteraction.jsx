@@ -1,26 +1,35 @@
-import { User2Icon } from "lucide-react"
+import { User2Icon, MedalIcon } from "lucide-react"
 import { useMemo, useState } from "react"
-export default function IfInteraction({questionName, question, questions, setQuestions}){
+import './ifInteraction.css'
+import EditQuestion from "./EditQuestions"
+export default function IfInteraction({questionName, questions, setAddInteraction, setEditQuestion, questionEdit}){
 
  const displayQuestions=questions.map((ques, index)=>{
     return(
-        <div key={index}>
+        <div key={ques.id} 
+        className="question"
+        onClick={()=>{setAddInteraction(true),setEditQuestion(true), questionEdit(ques.id)}} 
+        >
         <div>
-        <span>1</span>
+        <span className="id">1</span>
         <div>
             <p>Quiz question</p>
-            <p><span>0</span> Votes <span>20 sec</span></p>
+            <p>{0} Votes <span>{20} sec</span></p>
         </div>
-        </div>
+        </div><br />
         <p>{ques.question}</p>
        </div>
-    )
- })
+       )})
+
     return(
-        <div>
+        <div className="ifInteraction">
        <h3>{questionName}</h3>
-       <div>
-        <User2Icon/>
+       <br />
+       <div  className="w-f-p-note">
+        <span>
+         <User2Icon/>
+        </span>
+        
         <div>
             <p>Joining quiz</p>
             <p>waiting for participants</p>
@@ -30,6 +39,17 @@ export default function IfInteraction({questionName, question, questions, setQue
        <hr />
        <br />
        {displayQuestions}
+       <br />
+      <div className="leaderboard">
+        <span>
+         <MedalIcon/>
+        </span>
+       
+        <div>
+            <p>Leaderboard</p>
+            <p>Quiz results</p>
+        </div>
+      </div>
         </div>
     )
 }

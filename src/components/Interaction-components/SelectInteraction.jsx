@@ -7,7 +7,14 @@ export default function SelectInteraction({name, questions, setQuestions}){
     const [addInteraction, setAddInteraction]=useState(false);
     const [questionName, setQuestionName]=useState('');
     const [question, setQuestion]=useState('');
+    const [editQuestion, setEditQuestion]=useState(false);
+    const [editQuestionArray,setEditQuestionArray]=useState(null);
 
+    function questionEdit(id){
+     const editQues=questions.find((question)=> question.id ===id)
+    setEditQuestionArray(editQues)
+    console.log(editQuestionArray)
+    }
 
     return(
        <div className="selectInteraction"> 
@@ -15,8 +22,21 @@ export default function SelectInteraction({name, questions, setQuestions}){
                 <p>{name}</p>
                   <Trash2Icon/>
                  </div> 
-                 <br /> 
-      { questions.length===2? <NoInteraction 
+                 <br/> 
+      { !addInteraction && questions.length>0?  
+        <IfInteraction 
+       questionName={questionName}
+       questions={questions}
+       setQuestions={setQuestions}
+       question={question}
+       setQuestion={setQuestion}
+       setAddInteraction={setAddInteraction}
+       addInteraction={addInteraction}
+       setEditQuestion={setEditQuestion}
+       questionEdit={questionEdit}
+       />
+       : 
+      <NoInteraction 
        name={name}
        setQuestionName={setQuestionName}
        setAddInteraction={setAddInteraction}
@@ -25,15 +45,10 @@ export default function SelectInteraction({name, questions, setQuestions}){
        setQuestion={setQuestion}
        questions={questions}
        setQuestions={setQuestions}
+       editQuestion={editQuestion}
+       editQuestionArray={editQuestionArray}
+       setEditQuestionArray={setEditQuestionArray}
        /> 
-       : 
-        <IfInteraction 
-       questionName={questionName}
-       questions={questions}
-       setQuestions={setQuestions}
-       question={question}
-       setQuestion={setQuestion}
-       />
       }
 
      

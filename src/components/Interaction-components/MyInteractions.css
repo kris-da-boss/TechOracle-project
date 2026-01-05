@@ -93,6 +93,8 @@ flex-direction: column;
     left: 0;
     right: 0;
     bottom: 0;
+    overflow: auto;
+    scrollbar-width: none;
 }
 .interaction-choice .div,
 .interaction-choice .div button {
@@ -170,6 +172,8 @@ padding: 10px;
     border: none;
     padding: 5px;
 }
+
+
 .add-interaction{
     position: absolute;
     background-color: rgb(48, 21, 5);

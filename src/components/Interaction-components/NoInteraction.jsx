@@ -1,6 +1,6 @@
 import AddInteraction from "./AddInteraction";
-export default function({name,setQuestionName,setAddInteraction, addInteraction, question , setQuestion, questions, setQuestions}){
-    
+export default function({name,setQuestionName,setAddInteraction, addInteraction, question , setQuestion, questions, setQuestions, editQuestion, editQuestionArray, setEditQuestionArray}){
+
     return(
         <>
                  <input type="text" placeholder="Quiz name..." className="question-input" onChange={(e)=>setQuestionName(e.target.value)}/>
@@ -17,6 +17,9 @@ export default function({name,setQuestionName,setAddInteraction, addInteraction,
                  question={question}
                  questions={questions}
                  setQuestions={setQuestions}
+                 editQuestion={editQuestion}
+                 editQuestionArray={editQuestionArray}
+                 setEditQuestionArray={setEditQuestionArray}
                  /> }
                <br/> <br/><br/><br/>
                  <div className="launch">
