@@ -42,3 +42,63 @@ gap: 10px;
     display: flex;
     gap: 10px;
 }
+/* Edit Question */
+.editQuestion{
+  background-color: rgb(48, 21, 5);
+}
+.editQuestion input{
+    background-color: rgb(48, 21, 5);
+    color: white;
+    outline: white;
+    border: none;
+}
+.editQuestion .percent{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+.editQuestion .percent div{
+    background-color: rgba(255, 255, 255, 0.548);
+    height: 9px;
+    border-radius: 5px;
+    flex-grow: 1;
+}
+.editQuestion .percent div .gauge{
+width: 40%;
+background-color: white;
+height: inherit;
+display: block;
+border-radius: inherit;
+}
+
+.editQuestion .percent{
+      margin-top: 10px;
+}
+.editQuestion .question{
+   font-size: large;
+   margin-bottom: 20px;
+}
+.editQuestion .options{
+    margin-bottom: 30px;
+    padding: 6px;
+}
+.editQuestion .options:hover{
+    border: white solid 2px;
+    border-radius: 10px;
+}
+.editQuestion .options .name{
+    display: flex;
+    gap: 20px;
+}
+.editQuestion .options .name .checkIcon{
+   background-color: rgb(2, 77, 2);
+   border-radius: 50%;
+   height: 15px;
+   width:15px;
+   
+}
+.editQuestion .options .name .lockIcon{
+    height: 15px;
+    width: 15px;
+    color: rgba(255, 255, 255, 0.418);
+}

@@ -18,7 +18,7 @@ export default function SelectInteraction({name, questions, setQuestions}){
 
     return(
        <div className="selectInteraction"> 
-        <div className="name-delete">
+        <div className="name-delete"> 
                 <p>{name}</p>
                   <Trash2Icon/>
                  </div> 

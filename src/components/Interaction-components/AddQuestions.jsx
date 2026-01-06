@@ -19,7 +19,7 @@ export default function AddQuestions({setAddInteraction, name, question, setQues
        useEffect(()=>{
           const inputCheck=option.some(opt=> opt.value.trim()!=='')
           const checkbox=option.some(opt=>opt.checked);
-    
+
              if(inputCheck && checkbox){
                 setDisabled(false)
              }else{
@@ -29,7 +29,7 @@ export default function AddQuestions({setAddInteraction, name, question, setQues
     
         //   addQuestions
      function addQuestions() {    
-       const questionOption= option.map(opt=> opt.value)
+       const questionOption= option.map(opt=> opt)
          setQuestions(prev => {
         if (prev.some(q => q.question === question))
           return prev
@@ -38,8 +38,7 @@ export default function AddQuestions({setAddInteraction, name, question, setQues
             question,
             questionOption
         }]
-      })
-    }
+      }) }
     
         function addOptions(){
             setOption(prev=>{
