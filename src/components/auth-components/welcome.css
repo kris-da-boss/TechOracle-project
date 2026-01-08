@@ -203,7 +203,14 @@ font-size: xx-large;
         background-image: linear-gradient(to right, green, blue);
     }
 }
-
+/* Testimonials */
+.welcome-main .testimonials h3{
+font-size: xx-large;
+text-align: center;
+}
+.welcome-main .quote-icon{
+    transform: rotate(180deg);
+}
 /* Menu */
 .menu-com{
     padding: 20px;

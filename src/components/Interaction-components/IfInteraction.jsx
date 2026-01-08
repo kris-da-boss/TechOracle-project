@@ -3,7 +3,6 @@ import { useMemo, useState } from "react"
 import './ifInteraction.css'
 import EditQuestion from "./EditQuestions"
 export default function IfInteraction({questionName, questions, setAddInteraction, setEditQuestion, questionEdit}){
-
  const displayQuestions=questions.map((ques, index)=>{
     return(
         <div key={ques.id} 
@@ -16,11 +15,10 @@ export default function IfInteraction({questionName, questions, setAddInteractio
             <p>Quiz question</p>
             <p>{0} Votes <span>{20} sec</span></p>
         </div>
-        </div><br />
+        </div><br/>
         <p>{ques.question}</p>
        </div>
        )})
-
     return(
         <div className="ifInteraction">
        <h3>{questionName}</h3>

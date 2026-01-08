@@ -1,5 +1,5 @@
 import './welcome.css'
-import { MenuIcon, VoteIcon, ArrowBigRight, List, ChartBar,HelpCircle, Users, Share, CreativeCommons, FileOutput, FileOutputIcon } from 'lucide-react'
+import { MenuIcon, VoteIcon, ArrowBigRight, List, ChartBar,HelpCircle, Users, Share, CreativeCommons, FileOutput, FileOutputIcon, Quote } from 'lucide-react'
 import { Link } from 'react-router'
 import { useState } from 'react'
 import Menu from './Menu'
@@ -7,6 +7,42 @@ import Menu from './Menu'
 export default function Welcome(){
 const [showMenu, setShowMenu]=useState(false);
 const menuClass=showMenu ?'showMenu':'closeMenu';
+const testimonials=[
+  {name:'Paul',
+  job:'worker at Sivex global limited',
+   quote:'"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto facilis earum saepe asperiores iure magni illo alias corporis tenetur voluptatem harum cumque at nesciunt, delectus veniam ad enim sint minima?"',
+   image:''
+  },
+  {
+   name:'Emmanuel',
+   job:'Founder and CEO of Emac limited',
+   quote:'"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto facilis earum saepe asperiores iure magni illo alias corporis tenetur voluptatem harum cumque at nesciunt, delectus veniam ad enim sint minima?"',
+   image:''
+  },
+  {name:'Best',
+  job:'Buisness woman and worker at foreign affairs Abuja',
+   quote:'"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto facilis earum saepe asperiores iure magni illo alias corporis tenetur voluptatem harum cumque at nesciunt, delectus veniam ad enim sint minima?"',
+   image:''
+  }
+].map((person)=>{
+  return(
+    <div className='testimonial'>
+    <div>
+      <div><img src="" alt="" /></div>
+      <div>
+        <p>{person.name}</p>
+        <p>{person.job}</p>
+         
+        <p><Quote className='quote-icon'/>
+        {person.quote}
+        <Quote/>
+        </p>
+      </div>
+    </div>
+    <button>Learn More</button>
+    </div>
+  )
+})
     return(
         <>
         <header className="welcome-header">
@@ -121,20 +157,9 @@ const menuClass=showMenu ?'showMenu':'closeMenu';
           </div>
        </section>
         
-       <div>
+       <div className='testimonials'>
         <h3>Trusted by Millons around the World</h3>
-        <div>
-            <p>paul</p>
-            <p>"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto facilis earum saepe asperiores iure magni illo alias corporis tenetur voluptatem harum cumque at nesciunt, delectus veniam ad enim sint minima?"</p>
-        </div>
-        <div>
-            <p>Emma</p>
-            <p>"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto facilis earum saepe asperiores iure magni illo alias corporis tenetur voluptatem harum cumque at nesciunt, delectus veniam ad enim sint minima?"</p>
-        </div>
-        <div>
-            <p>Best</p>
-            <p>"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto facilis earum saepe asperiores iure magni illo alias corporis tenetur voluptatem harum cumque at nesciunt, delectus veniam ad enim sint minima?"</p>
-        </div>
+        {testimonials}
        </div>
        <div className='extraTag' data-aos='slide-up'>
         <p>Make your meetings more interactive with ChoiceHub.</p>
