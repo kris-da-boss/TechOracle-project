@@ -1,0 +1,107 @@
+.ifInteraction{
+    color :white
+}
+.ifInteraction .question{
+    background-color: white;
+    color :black;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px
+}
+.ifInteraction .question > div{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+}
+.ifInteraction .question .id{
+    background-color: green;
+    padding: 5px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+.ifInteraction .w-f-p-note{
+display: flex;
+gap: 10px;
+}
+.ifInteraction .w-f-p-note span,
+.ifInteraction .leaderboard span
+{
+    background-color: rgb(95, 163, 95);
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    padding: 4px;
+}
+.ifInteraction .leaderboard{
+    display: flex;
+    gap: 10px;
+}
+/* Edit Question */
+.editQuestion{
+  background-color: rgb(48, 21, 5);
+}
+.editQuestion input{
+    background-color: rgb(48, 21, 5);
+    color: white;
+    outline: white;
+    border: none;
+}
+.editQuestion .percent{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+.editQuestion .percent div{
+    background-color: rgba(255, 255, 255, 0.548);
+    height: 9px;
+    border-radius: 5px;
+    flex-grow: 1;
+}
+.editQuestion .percent div .gauge{
+width: 40%;
+background-color: white;
+height: inherit;
+display: block;
+border-radius: inherit;
+}
+
+.editQuestion .percent{
+      margin-top: 10px;
+}
+.editQuestion .question{
+   font-size: large;
+   margin-bottom: 20px;
+}
+.editQuestion .options{
+    margin-bottom: 30px;
+    padding: 6px;
+}
+.editQuestion .options:hover{
+    border: white solid 2px;
+    border-radius: 10px;
+}
+.editQuestion .options .name{
+    display: flex;
+    gap: 20px;
+}
+.editQuestion .options .name .checkIcon{
+   background-color: rgb(2, 77, 2);
+   border-radius: 50%;
+   height: 15px;
+   width:15px;
+   
+}
+.editQuestion .options .name .lockIcon{
+    height: 15px;
+    width: 15px;
+    color: rgba(255, 255, 255, 0.418);
+}
+.closeEdit {
+    display: none;
+}

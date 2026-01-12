@@ -1,0 +1,223 @@
+:root{
+    --gen-padding: 10px;
+    --gen-margin:10px;
+    --gen-gap:10px
+}
+.logo{
+    color: blue;
+}
+.welcome-header{
+ color: blue;
+ display: flex;
+ justify-content: space-between;
+ box-shadow: 0px 4px 10px black;
+ padding: 10px;
+ position: sticky;
+ top: 0;
+ z-index: 100;
+ background-color: white;
+}
+.welcome-header div{
+    display: flex;
+    align-items: center;
+    height: fit-content;
+    gap: 10px;
+}
+.welcome-header button{
+    border: none;
+    font-size: large;
+}
+.welcome-header .login-btn{
+    background-image: linear-gradient(to right, blue, green);
+     padding: 5px;
+    border-radius: 5px;
+    color: white;
+}
+.welcome-header .signup-btn,
+.welcome-header .menu-icon
+{
+    background-color: white;
+}
+
+.join-as-participant{
+    background-color: blue;
+    padding: 10px;
+    padding-bottom: 30px;
+    margin: 10px 30px;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gen-gap);
+    box-shadow: 0px 6px 5px black;  
+}
+.join-as-participant p{
+ color: white;
+ font-size: larger;
+ font-weight: bold;
+}
+.participant-code-btn{
+    width: fit-content;
+    border: none;
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    background-color: white;
+    border-radius: 4px;
+}
+.participant-code-btn input{
+  margin: -9px;
+  outline: none;
+  border: none;
+  padding: 10px;
+}
+.tag-1-div{
+    text-align: start;
+}
+
+.tag-1 {
+    font-size:70px;
+    color: rgb(8, 182, 182);
+    text-align: center;
+}
+.tag-1-div button{
+    color: white;
+    background-color: blue;
+    padding: 10px;
+    border-radius: 3px;
+    border: none;
+    width: 100%;
+    margin-top: var(--gen-margin);
+    font-weight: bold;
+}
+.offer{
+    margin-top: var(--gen-margin);
+}
+.offer p, 
+.tag-1-div p:nth-child(2){
+    font-size: large;
+}
+.offer h2
+{
+    font-size: xx-large;
+    text-align: center;
+}
+.offer span{
+      color: rgb(8, 182, 182);
+}
+.offer .offer-div{
+    padding: 10px;
+    margin-top: var(--gen-margin);
+    background-color: rgba(0, 0, 255, 0.473);
+    text-align: center;
+    border-radius: 6px;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gen-gap);
+}
+.how-it-works{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+      margin-bottom: 30px;
+}
+.how-it-works h2,
+.who-uses h2
+{
+    font-size: xx-large;
+    text-align: center;
+    color: rgb(8, 182, 182);
+  
+}
+.how-it-works div{
+    padding: 10px;
+    margin: 10px;
+    height: 200px;
+    box-shadow: 0 0 4px black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gen-gap);
+    font-size: larger;
+    border-radius: 10px;
+}
+.who-uses{
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ gap: 20px;
+ margin-bottom: 20px;
+}
+.who-uses div{
+    height: 200px;
+    padding: var(--gen-padding);
+    background-color: black;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+}
+.extraTag{
+  background-color: rgba(1, 1, 19, 0.137);
+    padding: 20px;
+    height: auto;
+    border-radius: 20px;
+    margin-top: 50px;
+    
+}
+.extraTag p{
+color: white;
+text-shadow: 0 0 5px black;
+font-weight: bolder;
+font-size: xx-large;
+}
+.extraTag button{
+    color: white;
+    background-image: linear-gradient(to right, blue, green);
+    padding: 20px;
+    border-radius: 5px;
+    border: none;
+    width: 100%;
+    margin-top: var(--gen-margin);
+    font-weight: bold;
+    font-size: x-large;
+    animation: signUp 6s ease-in infinite;
+}
+@keyframes signUp {
+    0%{
+    background-image: linear-gradient(to right, blue, green);
+    }
+
+    30%{
+        background-image: linear-gradient(to right, rgb(6, 172, 6), rgb(15, 15, 156));
+    }
+    
+    30%{
+        background-image: linear-gradient(to right, rgb(56, 156, 56), rgb(101, 101, 160));
+    }
+    30%{
+        background-image: linear-gradient(to right, green, blue);
+    }
+}
+/* Testimonials */
+.welcome-main .testimonials h3{
+font-size: xx-large;
+text-align: center;
+}
+.welcome-main .quote-icon{
+    transform: rotate(180deg);
+}
+/* Menu */
+.menu-com{
+    padding: 20px;
+    position: fixed;
+    background-color: black;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    
+}

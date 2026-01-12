@@ -1,0 +1,75 @@
+.nav-bar-open{
+    height: 100vh;
+    position: fixed;
+    left:0%;
+    top: 0;
+    background-color: black;
+    width: 80%;
+    transition: left .5s ease-in ;
+    color:white;
+    z-index:1
+}
+
+.nav-bar-close{
+    left: -80%;
+    transition: left 0.5s ease-out;
+}
+.overlay{
+ background-color: rgba(0, 0, 0, 0.116);
+ height: 100vh;
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ z-index: 1;
+}
+.nav-bar{
+    color: white;
+}
+.nav-header{
+    background-color: green;
+    height: 200px;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    align-items: end;
+}
+.bg-blue{
+    background-color: rgb(13, 13, 156);
+}
+.upgrade-in-nav,
+.setting-icon,
+.bg-blue
+{
+  border: none;
+   color: white;
+}
+.nav-header{
+font-weight: bold;
+}
+.upgrade-in-nav{
+    background-color: rgb(5, 77, 5);
+    padding: 5px;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+.setting-icon{
+    background-color: green;
+}
+.nav-list{
+   padding: 14px;
+}
+.nav-list p{
+    padding: 10px;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+.clicked{
+    color: green;
+    text-decoration: none;
+}
+.unclicked{
+    color: white;
+    text-decoration: none;
+}

@@ -1,0 +1,56 @@
+.logo-signup{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.google-signup{
+    box-shadow: 0 0 1px black;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+.or{
+    text-align: center;
+}
+.signup-form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 0 3px black;
+    padding: 20px;
+    align-items: center;
+}
+.signup-form label{
+   display: block;
+   width: 100%;
+}
+.signup-form input{
+padding: 10px;
+border: none;
+border-bottom: 1px black solid;
+outline: none;
+width: 100%;
+}
+.signup-form button{
+    padding: 10px;
+    width: 100%;
+    margin-right: 10px;
+    margin-left: 10px;
+    background-color: blue;
+    color: white;
+    border-radius: 4px;
+}
+.j-a-p{
+    margin-left: -20px;
+    margin-right: -20px;
+    margin-bottom: -10px;
+    height: 200px;
+   justify-content: center;
+}
+.j-a-p p{
+    font-size: small;
+}
+.j-a-p h3{
+    color: white;
+    text-shadow: 0 0 4px black;
+}
+
