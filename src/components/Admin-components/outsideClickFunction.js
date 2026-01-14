@@ -5,7 +5,7 @@ export default function outsideClickFunction(ref, onOutsideClick){
             if(ref.every(ref=> ref.current && 
             !ref.current.contains(e.target))){  
             onOutsideClick();
-        }
+        }add
            }
         document.addEventListener('mousedown', handler)
     return function(){
